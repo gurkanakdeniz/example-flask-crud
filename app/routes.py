@@ -47,12 +47,16 @@ def updateRoute(id):
 
     return "of the jedi"
 
-@app.route('/update', methods=['POST'])
-def update():
+@app.route('/update/<int:id>', methods=['POST'])
+def update(id):
     if not id or id != 0:
         entry = Entry.query.get(id)
         if entry:
-            db.session.delete(entry)
+            form = request.form
+            title = form.get('title')
+            description = form.get('description')
+            entry.title = title
+            entry.description = description
             db.session.commit()
         return redirect('/')
 

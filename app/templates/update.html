@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="/add" method="post">
+                    <form action="/update/{{ entry.id }}" method="post">
                         <div class="form-group">
                             <input class="form-control" type="text" name="title" placeholder="Title" value="{{ entry.title }}" required>
                         </div>
@@ -17,7 +17,7 @@
                                       placeholder="Add a Description" required> {{ entry.description }} </textarea>
                         </div>
                         <button class="btn btn-primary" type="submit">
-                            Add
+                            Update
                         </button>
                     </form>
                 </div>
